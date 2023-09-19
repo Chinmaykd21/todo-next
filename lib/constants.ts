@@ -1,17 +1,9 @@
 export interface todoProps {
   id: number;
   title?: string;
-  startDate?: Date;
-  endDate?: Date;
   description?: string;
   isFinished?: boolean;
-  category?:
-    | "Programming"
-    | "Reading"
-    | "Gaming"
-    | "Household"
-    | "Studying"
-    | null;
+  category?: "Programming" | "Reading" | "Household" | "Studying" | null;
 }
 
 export const todos: todoProps[] = [
@@ -20,8 +12,6 @@ export const todos: todoProps[] = [
     title: "First TODO",
     category: "Programming",
     description: "This app is in nextJS programming",
-    startDate: new Date(),
-    endDate: new Date(),
     isFinished: false,
   },
   {
@@ -29,8 +19,6 @@ export const todos: todoProps[] = [
     title: "Second TODO",
     category: "Studying",
     description: "NextJS study",
-    startDate: new Date(),
-    endDate: new Date(),
     isFinished: true,
   },
   {
@@ -38,8 +26,6 @@ export const todos: todoProps[] = [
     title: "Third TODO",
     category: "Reading",
     description: "There is nothing interesting to read",
-    startDate: new Date(),
-    endDate: new Date(),
     isFinished: false,
   },
   {
@@ -47,8 +33,6 @@ export const todos: todoProps[] = [
     title: "Fourth TODO",
     category: "Household",
     description: "Some household chores are still remaining",
-    startDate: new Date(),
-    endDate: new Date(),
     isFinished: false,
   },
 ];
