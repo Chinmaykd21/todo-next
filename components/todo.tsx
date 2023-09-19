@@ -2,6 +2,7 @@
 import { todoProps } from "@/lib/constants";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Toaster, toast } from "sonner";
 
 export const Todo = ({ todo }: { todo: todoProps }) => {
   const [completed, setCompleted] = useState(todo?.isFinished);
@@ -23,7 +24,17 @@ export const Todo = ({ todo }: { todo: todoProps }) => {
   const styles = `badge ${color} badge-outline`;
 
   const handleClick = (todo: todoProps) => {
+    if (!todo) {
+      toast.error("Could not update status!!!");
+    }
     setCompleted((prevState) => (todo.isFinished = !prevState));
+    toast("Todo status updated successfully", {
+      action: {
+        label: "Dismiss",
+        onClick: () => toast.dismiss(),
+      },
+      duration: Infinity,
+    });
   };
 
   const handleEdit = () => {
@@ -58,6 +69,7 @@ export const Todo = ({ todo }: { todo: todoProps }) => {
           </button>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

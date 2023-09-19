@@ -1,23 +1,36 @@
 "use client";
 
 import { useState } from "react";
-import ShowModal from "./showModal";
+import { useRouter, useSelectedLayoutSegments } from "next/navigation";
 
 const NavBar = () => {
   const [filter, setFilter] = useState(
     "Filter By Name, Category, Complete Status"
   );
-  const [show, setShow] = useState(false);
 
-  const handleAboutClick = (): JSX.Element => {
-    // TODO: Modal not displaying
-    setShow((prevState) => (prevState = !prevState));
-    return <ShowModal showStatus={show} />;
+  const segments = useSelectedLayoutSegments();
+  const router = useRouter();
+
+  const handleAddTodoClick = () => {
+    router.push(`/add`);
   };
+
+  const buttonAdd =
+    segments[1] !== "add" ? (
+      <button
+        className="btn btn-success btn-outline"
+        onClick={handleAddTodoClick}
+      >
+        Add Todo
+      </button>
+    ) : null;
+
   return (
     <div className="navbar bg-base-100 text-white flex justify-evenly">
       <div className="navbar-start">
-        <a className="btn btn-ghost normal-case text-xl">Todo App</a>
+        <a className="btn btn-ghost normal-case text-xl" href="/">
+          Todo App
+        </a>
       </div>
       <div className="navbar-center">
         <div className="form-control">
@@ -29,14 +42,7 @@ const NavBar = () => {
           />
         </div>
       </div>
-      <div className="navbar-end">
-        <button
-          className="btn btn-success btn-outline"
-          onClick={handleAboutClick}
-        >
-          About
-        </button>
-      </div>
+      <div className="navbar-end">{buttonAdd}</div>
     </div>
   );
 };
