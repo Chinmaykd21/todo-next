@@ -30,6 +30,10 @@ export const Todo = ({ todo }: { todo: todoProps }) => {
     router.push(`/edit/${todo?.id}`);
   };
 
+  const handleDelete = () => {
+    router.push(`/delete/${todo?.id}`);
+  };
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl h-1/3" data-theme="cupcake">
       <div className="card-body">
@@ -48,6 +52,9 @@ export const Todo = ({ todo }: { todo: todoProps }) => {
         <div className="card-actions justify-end">
           <button className="btn btn-primary" onClick={handleEdit}>
             Edit
+          </button>
+          <button className="btn btn-error" onClick={handleDelete}>
+            Delete
           </button>
         </div>
       </div>
