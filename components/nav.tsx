@@ -26,23 +26,23 @@ const NavBar = () => {
     ) : null;
 
   return (
-    <div className="navbar bg-base-100 text-white flex justify-evenly">
+    <div className="navbar bg-base-100 text-white">
       <div className="navbar-start">
         <a className="btn btn-ghost normal-case text-xl" href="/">
           Todo App
         </a>
       </div>
-      <div className="navbar-center">
+      <div className="navbar-end flex flex-row justify-end gap-3">
         <div className="form-control">
           <input
             type="text"
             placeholder={filter}
-            className="input input-bordered w-24 md:w-auto"
+            className="input input-bordered"
             onChange={(e) => setFilter(e?.target?.value)}
           />
         </div>
+        {buttonAdd}
       </div>
-      <div className="navbar-end">{buttonAdd}</div>
     </div>
   );
 };
