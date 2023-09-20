@@ -1,12 +1,12 @@
 "use client";
 
-import { todoCategories, todoProps, todos } from "@/lib/constants";
+import { todoCategories, todoProps } from "@/lib/constants";
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
 
 const AddTodo = () => {
   const addTodo: todoProps = {
-    id: "dsgfads",
+    id: crypto.randomUUID(),
     title: "",
     description: "",
     isFinished: false,
@@ -23,7 +23,6 @@ const AddTodo = () => {
       formData?.title?.length === 0 ||
       formData?.description?.length === 0
     ) {
-      console.log("Inside", JSON.stringify(formData));
       toast("Invalid Data!", {
         action: {
           label: "Dismiss",
@@ -42,8 +41,8 @@ const AddTodo = () => {
       body: JSON.stringify(formData),
     });
 
-    const result = await res.json();
-    console.log(`res -> ${result}`);
+    const result: Response = await res.json();
+    console.log(`result -> ${JSON.stringify(result)}`);
   };
 
   return (
