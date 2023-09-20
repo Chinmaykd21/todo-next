@@ -23,7 +23,11 @@ const NavBar = () => {
       >
         Add Todo
       </button>
-    ) : null;
+    ) : (
+      <a className="btn btn-success btn-outline" href="/">
+        Back
+      </a>
+    );
 
   return (
     <div className="navbar bg-base-100 text-white">

@@ -19,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark">
       <body className={inter.className}>
-        <NavBar />
-        {children}
-        <Footer />
+        <div className="h-screen">
+          <NavBar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

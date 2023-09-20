@@ -25,7 +25,13 @@ export const Todo = ({ todo }: { todo: todoProps }) => {
 
   const handleClick = (todo: todoProps) => {
     if (!todo) {
-      toast.error("Could not update status!!!");
+      toast.error("Could not update status", {
+        action: {
+          label: "Dismiss",
+          onClick: () => toast.dismiss(),
+        },
+        duration: Infinity,
+      });
     }
     setCompleted((prevState) => (todo.isFinished = !prevState));
     toast("Todo status updated successfully", {
