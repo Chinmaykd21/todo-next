@@ -1,8 +1,8 @@
 "use client";
 
-import allTodos from "@/lib/todos.json";
+import data from "@/lib/data.json";
 import Todos from "@/components/todos";
 
 export default function Home() {
-  return <Todos todos={allTodos} />;
+  return <Todos allTodos={data?.allTodos} />;
 }

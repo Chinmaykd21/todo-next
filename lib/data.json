@@ -1,0 +1,32 @@
+{
+  "allTodos": [
+    {
+      "id": "4607d53d-b1a9-4089-ab0c-846b2f1d22ed",
+      "title": "Test",
+      "description": "First Test",
+      "isFinished": false,
+      "category": "Programming"
+    },
+    {
+      "id": "4607d53d-b1a9-4099-ab0c-846b2f1d22ed",
+      "title": "Test 1",
+      "description": "Second Test",
+      "isFinished": false,
+      "category": "Programming"
+    },
+    {
+      "id": "4607d53d-b1a9-4179-ab0c-846b2f1d22ed",
+      "title": "Test 2",
+      "description": "Third Test",
+      "isFinished": false,
+      "category": "Programming"
+    },
+    {
+      "id": "4607d53d-b1a9-4279-ab0c-846b2f1d22ed",
+      "title": "Test 3",
+      "description": "Test 4",
+      "isFinished": false,
+      "category": "Programming"
+    }
+  ]
+}

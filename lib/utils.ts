@@ -1,25 +1,27 @@
-import allTodos from "./todos.json";
+import data from "./data.json";
 
 export interface todoProps {
   id: string;
   title: string;
   category: string;
   description: string;
-  isFinished: false;
+  isFinished: boolean;
 }
 
 export const categories: string[] = [
   "Programming",
   "Household",
   "NextJS",
-  "Office",
+  "Reading",
 ];
 
 export const idExists = (todoId: string) => {
-  allTodos.forEach((todo) => {
+  let exists = false;
+  data?.allTodos.forEach((todo) => {
     if (todo?.id === todoId) {
-      return true;
+      exists = true;
+      return;
     }
   });
-  return false;
+  return exists;
 };

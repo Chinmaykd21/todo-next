@@ -1,14 +1,14 @@
-import { todoProps } from "@/lib/constants";
+import { todoProps } from "@/lib/utils";
 import React from "react";
 import { Todo } from "./todo";
 
-const Todos = ({ todos }: { todos: todoProps[] }) => {
+const Todos = ({ allTodos }: { allTodos: todoProps[] }) => {
   return (
     <div className="flex flex-row flex-wrap justify-evenly w-full items-center gap-7 p-4">
-      {todos.map((todo) => {
+      {allTodos?.map((todo) => {
         return (
           <div key={todo?.id}>
-            <Todo todo={todo} />
+            <Todo data={todo} />
           </div>
         );
       })}

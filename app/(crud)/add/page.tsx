@@ -24,7 +24,7 @@ const AddTodo = () => {
       !formData ||
       formData?.category === "Select A Category" ||
       formData?.title?.length === 0 ||
-      formData?.description === "Description"
+      formData?.description?.length === 0
     ) {
       toast("Invalid Data!", {
         action: {
@@ -44,8 +44,17 @@ const AddTodo = () => {
       body: JSON.stringify(formData),
     });
 
-    const result: Response = await res.json();
-    console.log(`result -> ${JSON.stringify(result)}`);
+    const result = await res.json();
+    if (result?.error) {
+      toast(`${result?.error}`, {
+        action: {
+          label: "Dismiss",
+          onClick: () => toast.dismiss(),
+        },
+        duration: Infinity,
+      });
+      return;
+    }
     router.push("/");
   };
 

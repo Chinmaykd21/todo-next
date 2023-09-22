@@ -1,11 +1,11 @@
 import { idExists, todoProps } from "@/lib/utils";
-import * as todos from "@/lib/todos.json";
+import data from "@/lib/data.json";
 import fs from "fs";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const data: todoProps = await req.json();
-  const { id, category, description, title }: todoProps = data;
+  const addTodoData: todoProps = await req.json();
+  const { id, category, description, title }: todoProps = addTodoData;
 
   if (!id) {
     return NextResponse.json(
@@ -41,10 +41,10 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  todos.push(data);
+  data?.allTodos?.push(addTodoData);
 
-  const serializeTodos = JSON.stringify(todos);
-  fs.writeFile("lib/todos.json", serializeTodos, (err) => {
+  const serializeTodoData = JSON.stringify(data, null, 2);
+  fs.writeFile(`lib/data.json`, serializeTodoData, (err) => {
     if (err) {
       return NextResponse.json(
         {
@@ -65,4 +65,13 @@ export async function POST(req: NextRequest) {
       }
     );
   });
+
+  return NextResponse.json(
+    {
+      error: "",
+    },
+    {
+      status: 200,
+    }
+  );
 }

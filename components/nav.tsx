@@ -37,7 +37,7 @@ const NavBar = () => {
         </a>
       </div>
       <div className="navbar-end flex flex-row justify-end gap-3">
-        <div className="form-control">
+        <div className="form-control grow">
           <input
             type="text"
             placeholder={filter}
