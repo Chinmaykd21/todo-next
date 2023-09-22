@@ -1,18 +1,21 @@
 "use client";
 
-import { todoCategories, todoProps } from "@/lib/constants";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { categories, todoProps } from "@/lib/utils";
 import { Toaster, toast } from "sonner";
 
 const AddTodo = () => {
-  const addTodo: todoProps = {
+  const router = useRouter();
+
+  const newTodo: todoProps = {
     id: crypto.randomUUID(),
     title: "",
-    description: "",
+    description: "Description",
     isFinished: false,
     category: "Select A Category",
   };
-  const [formData, setFormData] = useState(addTodo);
+  const [formData, setFormData] = useState(newTodo);
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ const AddTodo = () => {
       !formData ||
       formData?.category === "Select A Category" ||
       formData?.title?.length === 0 ||
-      formData?.description?.length === 0
+      formData?.description === "Description"
     ) {
       toast("Invalid Data!", {
         action: {
@@ -43,12 +46,13 @@ const AddTodo = () => {
 
     const result: Response = await res.json();
     console.log(`result -> ${JSON.stringify(result)}`);
+    router.push("/");
   };
 
   return (
     <>
       <div className="hero min-h-screen">
-        <div className="hero-content flex flex-col">
+        <div className="hero-content flex flex-col w-full">
           <div
             className="card flex-shrink-0 w-full max-w-sm shadow-2xl"
             data-theme="cupcake"
@@ -59,32 +63,25 @@ const AddTodo = () => {
             <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Title</span>
-                  </label>
                   <input
                     type="text"
-                    placeholder="Enter your todo title"
+                    placeholder="Title"
                     className="input input-bordered"
                     onChange={(e) =>
                       setFormData({ ...formData, title: e?.target?.value })
                     }
                   />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Description</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Todo Description"
-                    className="input input-bordered"
+                <div className="form-control mt-4">
+                  <textarea
+                    value={formData?.description}
                     onChange={(e) =>
                       setFormData({
                         ...formData,
                         description: e?.target?.value,
                       })
                     }
+                    className="textarea textarea-bordered textarea-lg w-full max-w-xs"
                   />
                   <select
                     className="select select-bordered mt-3 mb-3 select-sm w-full max-w-xs"
@@ -94,8 +91,8 @@ const AddTodo = () => {
                     defaultValue={"Category"}
                   >
                     <option disabled>Category</option>
-                    {todoCategories?.map((todoCategory, i) => {
-                      return <option key={i}>{todoCategory}</option>;
+                    {categories?.map((category, i) => {
+                      return <option key={i}>{category}</option>;
                     })}
                   </select>
                 </div>

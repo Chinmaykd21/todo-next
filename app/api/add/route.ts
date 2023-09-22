@@ -1,9 +1,11 @@
-import { todoProps, todos } from "@/lib/constants";
+import { idExists, todoProps } from "@/lib/utils";
+import * as todos from "@/lib/todos.json";
+import fs from "fs";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const todoData: todoProps = await req.json();
-  const { id, category, description, title }: todoProps = todoData;
+  const data: todoProps = await req.json();
+  const { id, category, description, title }: todoProps = data;
 
   if (!id) {
     return NextResponse.json(
@@ -27,28 +29,40 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  todos?.map((todo) => {
-    if (todo?.id === id) {
+  const exists = idExists(id);
+  if (exists) {
+    return NextResponse.json(
+      {
+        error: "ID already exists",
+      },
+      {
+        status: 500,
+      }
+    );
+  }
+
+  todos.push(data);
+
+  const serializeTodos = JSON.stringify(todos);
+  fs.writeFile("lib/todos.json", serializeTodos, (err) => {
+    if (err) {
       return NextResponse.json(
         {
-          error: "ID already exists",
+          error: "Error writing data to file",
         },
         {
           status: 500,
         }
       );
     }
-  });
 
-  // TODO: Write a logic to write new data to constants file
-  todos?.push(todoData);
-  return NextResponse.json(
-    {
-      error: "",
-      todos: todos,
-    },
-    {
-      status: 200,
-    }
-  );
+    return NextResponse.json(
+      {
+        error: "",
+      },
+      {
+        status: 200,
+      }
+    );
+  });
 }
