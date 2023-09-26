@@ -27,13 +27,6 @@
       "description": "Test 4",
       "isFinished": false,
       "category": "Household"
-    },
-    {
-      "id": "4fd945f3-f426-465d-97b7-feb43980ebd6",
-      "title": "Test",
-      "description": "This is to be deleted",
-      "isFinished": false,
-      "category": "Household"
     }
   ]
 }
