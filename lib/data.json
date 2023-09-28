@@ -10,16 +10,16 @@
     {
       "id": "11eca47d-c760-4fda-8cd6-2d74573d760a",
       "title": "fdsfdssdsf",
-      "description": "Description",
+      "description": "Need to update description to something better",
       "isFinished": false,
       "category": "Programming"
     },
     {
-      "id": "d84fd0d7-84d6-463f-9403-319cbb828c49",
-      "title": "dsfsd",
-      "description": "Description",
+      "id": "b7be2ccd-a811-4a5c-a6ff-fd4931ff8a01",
+      "title": "New Title 1",
+      "description": "I like Next JS. Giving presentation tomorrow",
       "isFinished": false,
-      "category": "Reading"
+      "category": "NextJS"
     }
   ]
 }
