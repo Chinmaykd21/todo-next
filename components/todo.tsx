@@ -45,7 +45,7 @@ export const Todo = ({ data }: { data: todoProps }) => {
   };
 
   const handleEdit = () => {
-    const modalElement = document?.getElementById("my_modal_1");
+    const modalElement = document?.getElementById(`${data?.id}`);
     if (modalElement) {
       // @ts-ignore
       modalElement?.showModal();
@@ -105,8 +105,8 @@ export const Todo = ({ data }: { data: todoProps }) => {
           </div>
         </div>
         <Toaster />
-        <TodoModal />
       </div>
+      <TodoModal key={data?.id} data={data} />
     </>
   );
 };

@@ -30,13 +30,13 @@ const NavBar = () => {
     );
 
   return (
-    <div className="navbar bg-base-100 text-white">
+    <div className="navbar bg-base-100 text-white h-[10vh]">
       <div className="navbar-start">
         <a className="btn btn-ghost normal-case text-xl" href="/">
           Todo App
         </a>
       </div>
-      <div className="navbar-end flex flex-row justify-end gap-3">
+      <div className="navbar-end flex flex-row justify-end gap-3 p-4">
         <div className="form-control grow">
           <input
             type="text"

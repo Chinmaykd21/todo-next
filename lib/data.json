@@ -1,27 +1,6 @@
 {
   "allTodos": [
     {
-      "id": "4607d53d-b1a9-4089-ab0c-846b2f1d22ed",
-      "title": "Test",
-      "description": "First Test",
-      "isFinished": false,
-      "category": "Reading"
-    },
-    {
-      "id": "4607d53d-b1a9-4099-ab0c-846b2f1d22ed",
-      "title": "Test 1",
-      "description": "Second Test",
-      "isFinished": false,
-      "category": "Programming"
-    },
-    {
-      "id": "4607d53d-b1a9-4179-ab0c-846b2f1d22ed",
-      "title": "Test 2",
-      "description": "Third Test",
-      "isFinished": false,
-      "category": "NextJs"
-    },
-    {
       "id": "4607d53d-b1a9-4279-ab0c-846b2f1d22ed",
       "title": "Test 3",
       "description": "Test 4",
@@ -29,11 +8,18 @@
       "category": "Household"
     },
     {
-      "id": "4fd945f3-f426-465d-97b7-feb43980ebd6",
-      "title": "Test",
-      "description": "This is to be deleted",
+      "id": "11eca47d-c760-4fda-8cd6-2d74573d760a",
+      "title": "fdsfdssdsf",
+      "description": "Description",
       "isFinished": false,
-      "category": "Household"
+      "category": "Programming"
+    },
+    {
+      "id": "d84fd0d7-84d6-463f-9403-319cbb828c49",
+      "title": "dsfsd",
+      "description": "Description",
+      "isFinished": false,
+      "category": "Reading"
     }
   ]
 }

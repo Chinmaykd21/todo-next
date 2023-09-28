@@ -1,10 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import data from "@/lib/data.json";
 import fs from "fs";
 
-export async function DELETE({ params }: { params: { id: string } }) {
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   const id = params?.id;
-
+  console.log("id", id);
   if (!id) {
     return NextResponse.json(
       {
@@ -15,12 +18,15 @@ export async function DELETE({ params }: { params: { id: string } }) {
       }
     );
   }
+  const allTodos = data?.allTodos;
 
-  const newData = data?.allTodos.filter((todo) => {
+  const newData = allTodos.filter((todo) => {
     return todo?.id !== id;
   });
 
-  const serializeTodoData = JSON.stringify(newData, null, 2);
+  data.allTodos = newData;
+
+  const serializeTodoData = JSON.stringify(data, null, 2);
   fs.writeFile(`lib/data.json`, serializeTodoData, (err) => {
     if (err) {
       return NextResponse.json(
