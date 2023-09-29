@@ -31,7 +31,7 @@ const AddTodo = () => {
           label: "Dismiss",
           onClick: () => toast.dismiss(),
         },
-        duration: Infinity,
+        duration: 5000,
       });
       return;
     }
@@ -51,7 +51,7 @@ const AddTodo = () => {
           label: "Dismiss",
           onClick: () => toast.dismiss(),
         },
-        duration: Infinity,
+        duration: 5000,
       });
       return;
     }

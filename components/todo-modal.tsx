@@ -21,7 +21,7 @@ const TodoModal = ({ data }: { data: todoProps }) => {
           label: "Dismiss",
           onClick: () => toast.dismiss(),
         },
-        duration: Infinity,
+        duration: 5000,
       });
       return;
     }
@@ -41,7 +41,7 @@ const TodoModal = ({ data }: { data: todoProps }) => {
           label: "Dismiss",
           onClick: () => toast.dismiss(),
         },
-        duration: Infinity,
+        duration: 5000,
       });
       return;
     }
@@ -50,7 +50,7 @@ const TodoModal = ({ data }: { data: todoProps }) => {
         label: "Dismiss",
         onClick: () => toast.dismiss(),
       },
-      duration: Infinity,
+      duration: 5000,
     });
   };
 

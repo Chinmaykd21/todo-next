@@ -1,16 +1,9 @@
 {
   "allTodos": [
     {
-      "id": "5ac782b9-f8bf-46cb-abc1-9145ae020a63",
+      "id": "38ade625-2f88-4bc3-bef9-c2e8782ba0f0",
       "title": "Todo 1",
-      "description": "This is the description of the todo",
-      "isFinished": true,
-      "category": "Household"
-    },
-    {
-      "id": "ce64197c-d0f1-4e6e-b463-a3872483f606",
-      "title": "Todo 2",
-      "description": "This is another description of the todo",
+      "description": "This is Todo 1 description.",
       "isFinished": false,
       "category": "Programming"
     }

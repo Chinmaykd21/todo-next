@@ -1,13 +1,11 @@
 "use client";
 import { todoProps } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { Toaster, toast } from "sonner";
 import TodoModal from "./todo-modal";
 
 export const Todo = ({ data }: { data: todoProps }) => {
   const router = useRouter();
-  const [completed, setCompleted] = useState(data?.isFinished);
 
   if (!data) {
     return;
@@ -47,12 +45,10 @@ export const Todo = ({ data }: { data: todoProps }) => {
           label: "Dismiss",
           onClick: () => toast.dismiss(),
         },
-        duration: Infinity,
+        duration: 5000,
       });
       return;
     }
-
-    toast(`${data?.title} has been deleted successfully`, { duration: 10 });
     router.push("/");
   };
 
@@ -65,9 +61,9 @@ export const Todo = ({ data }: { data: todoProps }) => {
         <div className="card-body">
           <div className="flex flex-row justify-between items-center space-x-3">
             <h2 className="card-title">{data?.title}</h2>
-            <label className="text text-1xl">
+            <button className="btn btn-outline">
               {data?.isFinished ? "Completed" : "Incomplete"}
-            </label>
+            </button>
           </div>
           <div className={styles}>{data?.category}</div>
 
