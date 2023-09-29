@@ -1,25 +1,11 @@
 {
   "allTodos": [
     {
-      "id": "4607d53d-b1a9-4279-ab0c-846b2f1d22ed",
-      "title": "Test 3",
-      "description": "Test 4",
+      "id": "5ac782b9-f8bf-46cb-abc1-9145ae020a63",
+      "title": "Todo 1",
+      "description": "This is the description of the todo",
       "isFinished": false,
       "category": "Household"
-    },
-    {
-      "id": "11eca47d-c760-4fda-8cd6-2d74573d760a",
-      "title": "fdsfdssdsf",
-      "description": "Need to update description to something better",
-      "isFinished": false,
-      "category": "Programming"
-    },
-    {
-      "id": "b7be2ccd-a811-4a5c-a6ff-fd4931ff8a01",
-      "title": "New Title 1",
-      "description": "I like Next JS. Giving presentation tomorrow",
-      "isFinished": false,
-      "category": "NextJS"
     }
   ]
 }

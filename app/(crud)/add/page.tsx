@@ -11,7 +11,7 @@ const AddTodo = () => {
   const newTodo: todoProps = {
     id: crypto.randomUUID(),
     title: "",
-    description: "Description",
+    description: "",
     isFinished: false,
     category: "Select A Category",
   };
@@ -84,6 +84,7 @@ const AddTodo = () => {
                 <div className="form-control mt-4">
                   <textarea
                     value={formData?.description}
+                    placeholder="Description"
                     onChange={(e) =>
                       setFormData({
                         ...formData,

@@ -1,13 +1,11 @@
 "use client";
 
 import { categories, todoProps } from "@/lib/utils";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 
 const TodoModal = ({ data }: { data: todoProps }) => {
   const [formData, setFormData] = useState(data);
-  const router = useRouter();
 
   const handleSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
@@ -47,26 +45,53 @@ const TodoModal = ({ data }: { data: todoProps }) => {
       });
       return;
     }
-    router.push("/");
+    toast(`${data?.title} updated successfully`, {
+      action: {
+        label: "Dismiss",
+        onClick: () => toast.dismiss(),
+      },
+      duration: Infinity,
+    });
   };
+
+  console.log("checkbox -> ", formData?.isFinished);
+
   return (
     <>
       <dialog id={`${data?.id}`} className="modal">
         <div className="modal-box">
           <div className="flex flex-row justify-center mt-3 items-center">
-            <p className="text-3xl">Edit {data?.title}</p>
+            <p className="text-3xl">Edit {formData?.title}</p>
           </div>
-          <div className="card-body">
-            <form onSubmit={handleSubmit}>
-              <div className="form-control">
-                <input
-                  type="text"
-                  value={formData?.title}
-                  className="input input-bordered"
-                  onChange={(e) =>
-                    setFormData({ ...formData, title: e?.target?.value })
-                  }
-                />
+          <div className="card-bodyl">
+            <form onSubmit={handleSubmit} method="dialog">
+              <div className="flex flex-row mt-3 justify-between">
+                <div className="form-control">
+                  <input
+                    type="text"
+                    value={formData?.title}
+                    className="input input-bordered"
+                    onChange={(e) =>
+                      setFormData({ ...formData, title: e?.target?.value })
+                    }
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text">Remember me</span>
+                    <input
+                      type="checkbox"
+                      checked={formData?.isFinished}
+                      className="checkbox"
+                      onChange={() =>
+                        setFormData({
+                          ...formData,
+                          isFinished: !formData?.isFinished,
+                        })
+                      }
+                    />
+                  </label>
+                </div>
               </div>
               <div className="form-control mt-4">
                 <textarea
@@ -77,10 +102,10 @@ const TodoModal = ({ data }: { data: todoProps }) => {
                       description: e?.target?.value,
                     })
                   }
-                  className="textarea textarea-bordered textarea-lg w-full max-w-xs"
+                  className="textarea textarea-bordered textarea-lg w-full"
                 />
                 <select
-                  className="select select-bordered mt-3 mb-3 select-sm w-full max-w-xs"
+                  className="select select-bordered mt-3 mb-3 select-sm w-full"
                   onChange={(e) =>
                     setFormData({ ...formData, category: e?.target?.value })
                   }
@@ -92,10 +117,10 @@ const TodoModal = ({ data }: { data: todoProps }) => {
                   })}
                 </select>
               </div>
-              <div className="form-control">
-                <button className="btn btn-info btn-outline">EDIT</button>
-              </div>
               <div className="modal-action">
+                <div className="form-control">
+                  <button className="btn btn-info btn-outline">EDIT</button>
+                </div>
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
                   <button className="btn">Close</button>

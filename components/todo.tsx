@@ -24,26 +24,6 @@ export const Todo = ({ data }: { data: todoProps }) => {
 
   const styles = `badge ${color} badge-outline`;
 
-  const handleClick = (data: todoProps) => {
-    if (!data) {
-      toast.error("Could not update status", {
-        action: {
-          label: "Dismiss",
-          onClick: () => toast.dismiss(),
-        },
-        duration: Infinity,
-      });
-    }
-    setCompleted((prevState) => (data.isFinished = !prevState));
-    toast("Todo status updated successfully", {
-      action: {
-        label: "Dismiss",
-        onClick: () => toast.dismiss(),
-      },
-      duration: Infinity,
-    });
-  };
-
   const handleEdit = () => {
     const modalElement = document?.getElementById(`${data?.id}`);
     if (modalElement) {
@@ -85,12 +65,9 @@ export const Todo = ({ data }: { data: todoProps }) => {
         <div className="card-body">
           <div className="flex flex-row justify-between items-center space-x-3">
             <h2 className="card-title">{data?.title}</h2>
-            <input
-              type="checkbox"
-              checked={completed}
-              className="checkbox"
-              onChange={() => handleClick(data)}
-            />
+            <label className="text text-1xl">
+              {data?.isFinished ? "Completed" : "Incomplete"}
+            </label>
           </div>
           <div className={styles}>{data?.category}</div>
 
