@@ -54,8 +54,6 @@ const TodoModal = ({ data }: { data: todoProps }) => {
     });
   };
 
-  console.log("checkbox -> ", formData?.isFinished);
-
   return (
     <>
       <dialog id={`${data?.id}`} className="modal">
@@ -76,9 +74,9 @@ const TodoModal = ({ data }: { data: todoProps }) => {
                     }
                   />
                 </div>
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text">Remember me</span>
+                <div className="form-control w-full">
+                  <label className="label cursor-pointer flex flex-row justify-between ml-3">
+                    <span className="label-text text">Completed?</span>
                     <input
                       type="checkbox"
                       checked={formData?.isFinished}

@@ -38,12 +38,12 @@ const NavBar = () => {
       </div>
       <div className="navbar-end flex flex-row justify-end gap-3 p-4">
         <div className="form-control grow">
-          <input
+          {/* <input
             type="text"
             placeholder={filter}
             className="input input-bordered"
             onChange={(e) => setFilter(e?.target?.value)}
-          />
+          /> */}
         </div>
         {buttonAdd}
       </div>

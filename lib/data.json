@@ -4,8 +4,15 @@
       "id": "5ac782b9-f8bf-46cb-abc1-9145ae020a63",
       "title": "Todo 1",
       "description": "This is the description of the todo",
-      "isFinished": false,
+      "isFinished": true,
       "category": "Household"
+    },
+    {
+      "id": "ce64197c-d0f1-4e6e-b463-a3872483f606",
+      "title": "Todo 2",
+      "description": "This is another description of the todo",
+      "isFinished": false,
+      "category": "Programming"
     }
   ]
 }
